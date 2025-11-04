@@ -31,5 +31,4 @@ jobs:
           name: Auxio-APK
           path: app/build/outputs/apk/debug/app-debug.apk
 
-
-          Fix Gradle compatibility: Use JDK 11
+          
