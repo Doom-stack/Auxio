@@ -462,10 +462,25 @@ constructor(
      *
      * @param song The [Song] to add.
      */
-    fun playNext(song: Song) {
-        L.d("Playing $song next")
-        playbackManager.playNext(song)
+ fun playNext(song: Song) {
+    L.d("Playing $song next")
+
+    // قراءة الإعداد من التفضيلات
+    val prefs = androidx.preference.PreferenceManager.getDefaultSharedPreferences(context)
+    val gapSeconds = prefs.getInt("pref_gap_between_songs", 0)
+
+    // تأخير التشغيل حسب القيمة المختارة (0 إلى 10 ثواني)
+    if (gapSeconds > 0) {
+        try {
+            Thread.sleep(gapSeconds * 1000L)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
     }
+
+    // تشغيل الأغنية التالية بعد الانتظار
+    playbackManager.playNext(song)
+}
 
     /**
      * Add a [Album] to the top of the queue.
