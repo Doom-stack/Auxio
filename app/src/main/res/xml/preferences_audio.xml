@@ -43,5 +43,14 @@
             app:summary="@string/set_pre_amp_desc"
             app:title="@string/set_pre_amp" />
 
-    </PreferenceCategory>
+   
+</PreferenceCategory>
+<SeekBarPreference
+    android:key="pref_inter_track_gap_seconds"
+    android:title="فاصل بين الأغاني (ثواني)"
+    android:summary="اختر كم ثانية انتظار بين نهاية أغنية وبداية التالية"
+    android:defaultValue="0"
+    android:min="0"
+    android:max="10"
+    app:showSeekBarValue="true" />
 </PreferenceScreen>
