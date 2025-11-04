@@ -1,9 +1,9 @@
 name: Build Auxio APK
-
+name: Android CI
 on:
   push:
     branches:
-      - main
+      - dev
   workflow_dispatch:
 
 jobs:
@@ -31,3 +31,4 @@ jobs:
         with:
           name: Auxio-APK
           path: app/build/outputs/apk/debug/app-debug.apk
+Add CI workflow with APK upload
